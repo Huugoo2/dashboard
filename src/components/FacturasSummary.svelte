@@ -33,7 +33,7 @@
   <div class="summary-card">
     <div class="icon">✅</div>
     <div class="content">
-      <h3>Facturas Pagadas</h3>
+      <h3>Último IVA Utilizado</h3>
       <p>{facturasPagadas}</p>
     </div>
   </div>
@@ -41,7 +41,7 @@
   <div class="summary-card">
     <div class="icon">⏳</div>
     <div class="content">
-      <h3>Facturas Pendientes</h3>
+      <h3>Última Dirección</h3>
       <p>{facturasPendientes}</p>
     </div>
   </div>

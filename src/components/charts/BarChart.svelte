@@ -1,4 +1,5 @@
 <script>
+  $: console.log("Datos recibidos en BarChart:", data);
   import { onMount, onDestroy } from 'svelte';
   import { 
     Chart as ChartJS,
@@ -40,35 +41,23 @@
   let chartElement;
 
   onMount(() => {
+  if (chartElement) {
     chart = new ChartJS(chartElement, {
       type: 'bar',
-      data,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: false,
-            text: 'Facturación Mensual'
-          }
-        }
-      }
+      data
     });
-  });
+  }
+});
 
-  onDestroy(() => {
-    if (chart) {
-      chart.destroy();
-    }
-  });
 
   // Actualizar el gráfico cuando cambien los datos
   $: if (chart && data) {
-    chart.data = data;
+    chart.config.data = { ...data };
     chart.update();
-  }
+}
+
+
+
 </script>
 
 <div class="chart-container">
